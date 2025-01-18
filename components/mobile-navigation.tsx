@@ -4,8 +4,6 @@ import Image from "next/image";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -16,6 +14,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import FileUploader from "./file-uploader";
+import { signoutUser } from "@/lib/actions/user.actions";
 
 interface Props {
   ownerId: string;
@@ -97,7 +96,7 @@ const MobileNav = ({ ownerId, accountId, fullName, avatar, email }: Props) => {
             <FileUploader />
             <Button
               type="submit"
-              onClick={() => {}}
+              onClick={async () => await signoutUser()}
               className="sign-out-button"
             >
               <Image
